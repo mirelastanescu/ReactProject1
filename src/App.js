@@ -12,7 +12,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      background: 'white'
+      background: 'white',
+      color: 'black'
     };
   }
 
@@ -30,20 +31,25 @@ class App extends React.Component {
     this.setState({background: event.target.value});
   }
 
+  changeTextColor(event) {
+    console.log(event.target.value);
+    this.setState({color: event.target.value});
+  }
+
   // render se apeleaza de fiecare data cand se modifica state-ul!
   render() {
     return(
       // Prin style putem trimite CSS catre componenta.
       // ATENTIE! style este un obiect JS (primele acolade sunt de la sintaxa JSX).
       // Tot din cauza JSX, nu putem avea atributul de HTML 'class'. In React e className.
-      <div className="app" style={{background: this.state.background}}>
+      <div className="app" style={{background: this.state.background, color: this.state.color}}>
         <h1>HELLO WORLD!</h1>
         {/* Componenta UserItem este "instantiata"(creata).
         In fisierul UserItem.jsx ea este doar declarata!! */}
         {/* Atributele name si email sunt puse intr-un obiect (DE CATRE REACT!!)
         si trimise catre componenta UserItem.jsx */}
-        <UserItem name="Arsene Florin" email="arsene.florin@gmail.com"/>
-        <UserItem name="Criste Mihai" email="criste.mihai@gmail.com"/>
+        <UserItem name="Arsene Florin" email="arsene.florin@gmail.com" salariu="1000 lei" imagine="sample.jpg"/>
+        <UserItem name="Criste Mihai" email="criste.mihai@gmail.com" salariu="1500 lei" imagine="sample.jpg"/>
         {/* input type color ne permite sa selectam o culoare. Cand selectam noua culoare
         se declanseaza evenimentul onChange, echivalent evenimentului onchange din HTML, sau
         a lui change, folosit de addEventListener. Functia executata atunci este changeColor,
@@ -57,6 +63,7 @@ class App extends React.Component {
         nu un apel de functie! onChange va apela el respectiva functie cand se va schimba 
         ceva! */}
         <input type="color" onChange={(event) => this.changeColor(event)}/>
+        <input type="color" onChange={(event) => this.changeTextColor(event)}/>
       </div>
     );
   }

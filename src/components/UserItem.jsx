@@ -7,7 +7,7 @@ function UserItem(props) {
     // ATENTIE! props este un obiect creat de REACT care are chei 'atributele' de HTML
     // folosite la crearea componentei UserItem (vezi in App.js)
     // pentru a extrage atributele obiectului props, folosim object destructuring (vezi Recapitulare)
-    const {name, email} = props;
+    const {name, email, salariu, imagine} = props;
     // ATENTIE! intotdeauna este returnat un singur element HTML
     // (de obicei un div), care le contine pe celelalte!
     return(
@@ -15,6 +15,8 @@ function UserItem(props) {
             {/* Folosim {} pentru a integra variabile/expresii de JS in taguri de HTML. */}
             <h2>{ name }</h2>
             <p>{ email }</p>
+            <p>{ salariu }</p>
+            <img src={ imagine } alt="sample" width="50" height="50"></img>
         </div>
     );
 }
