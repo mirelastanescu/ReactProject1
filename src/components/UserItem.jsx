@@ -1,25 +1,52 @@
-// Intotdeauna importam React, pentru a putea folosi JSX (JS combinat cu HTML).
 import React from 'react';
+// import UserList from './UserList';
 
-// Pentru o componenta care nu se schimba din momentul afisarii
-// este de ajuns sa facem o functie care returneaza un div.
-function UserItem(props) {
-    // ATENTIE! props este un obiect creat de REACT care are chei 'atributele' de HTML
-    // folosite la crearea componentei UserItem (vezi in App.js)
-    // pentru a extrage atributele obiectului props, folosim object destructuring (vezi Recapitulare)
-    const {name, email, salariu, imagine} = props;
-    // ATENTIE! intotdeauna este returnat un singur element HTML
-    // (de obicei un div), care le contine pe celelalte!
-    return(
-        <div>
-            {/* Folosim {} pentru a integra variabile/expresii de JS in taguri de HTML. */}
-            <h2>{ name }</h2>
-            <p>{ email }</p>
-            <p>{ salariu }</p>
-            <img src={ imagine } alt="sample" width="50" height="50"></img>
-        </div>
-    );
+// function UserItem({user}) {
+    
+//     console.log({user});
+//     const {name, email, salariu, imagine} = user;
+//     return(
+//         <>
+//             <table><tr>
+//                 <td width={250}><b>{ name }</b></td>
+//                 <td width={250}>{ email }</td>
+//                 <td width={100}>{ salariu }</td>
+//                 <td width={100}><img src={ imagine } alt="sample" width="30" height="30"></img></td>
+//                 <td width={100}><button onClick={() => UserList.deleteUser(user)}>Delete</button></td>
+//             </tr></table>
+//         </>
+//     );
+// }
+
+class UserItem extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    deleteUser(event) {
+        event.preventDefault();
+
+        
+        this.props.deleteFromUserList(this.props.user);
+    };
+    
+   
+    render() {
+
+        const {name, email, salariu, imagine} = this.props.user;
+        return(
+            <>
+                <table><tr>
+                    <td width={250}><b>{ name }</b></td>
+                    <td width={250}>{ email }</td>
+                    <td width={100}>{ salariu }</td>
+                    <td width={100}><img src={ imagine } alt="sample" width="30" height="30"></img></td>
+                    <td width={100}><button onClick={(event) => {this.deleteUser(event)}}>Delete</button></td>
+                </tr></table>
+            </>
+        );
+    }
 }
 
-// Pentru a putea fi utilizata in alte locuri, componenta trebuie exportata.
 export default UserItem;
