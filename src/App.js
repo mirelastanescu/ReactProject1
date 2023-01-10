@@ -75,17 +75,6 @@ class App extends React.Component {
     });
   }
 
-  deleteFromUserList(user){
-    this.setState(prevState => {
-      return {
-        users: [
-          ...prevState.users,
-          user
-        ]
-      }
-    });
-  }
-
   getMaxId(users) {
     let maxId = 0;
 

@@ -32,7 +32,7 @@ class UserList extends React.Component {
                 <h1>Lista utilizatorilor:</h1>
                 {   
                     users.map((user, index) => {
-                        return <UserItem key={index} user={user} updateUsersListToRemove={(user) => {
+                        return <UserItem key={index} user={user} deleteFromUserList={(user) => {
                             this.deleteFromUserList(user)}}></UserItem>
                     })
                 }
