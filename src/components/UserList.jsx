@@ -11,16 +11,13 @@ class UserList extends React.Component {
 
     deleteFromUserList(user) {
         console.log('Delete user1', this.props);
-        console.log('Delete user11', this.state.users);
         console.log('Delete user2', user);
 
-        // const {dataUsers} = this.props;
-        const {dataUsers} = this.state.users
+        const { users } = this.props;
+        console.log('Delete user3', users);
 
-        console.log('Delete user3', dataUsers);
-        this.dataUsers.splice(1, 1);
-        console.log('Delete user4', {dataUsers});
-        // this.setState({users: dataUsers});
+        users.splice(1, 1);
+        this.setState({users: users});
       };
 
     render() {

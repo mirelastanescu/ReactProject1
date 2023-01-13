@@ -20,17 +20,10 @@ import React from 'react';
 
 class UserItem extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     deleteUser(event) {
         event.preventDefault();
-
-        
         this.props.deleteFromUserList(this.props.user);
     };
-    
    
     render() {
 
