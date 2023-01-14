@@ -38,8 +38,9 @@ class UserAddForm extends React.Component {
   handleSubmit(event){
     event.preventDefault();
 
-    console.log(this.props.maxId);
-    
+    console.log("props: ",this.props);
+    console.log("maxId: ",this.props.maxId);
+
     const newUser = {
       id: this.props.maxId,
       name: this.state.name,
@@ -50,7 +51,7 @@ class UserAddForm extends React.Component {
 
     this.props.updateUsersList(newUser);
 
-    console.log(newUser);
+    console.log("new user: ",newUser);
   }
 
   render() {

@@ -75,11 +75,10 @@ class App extends React.Component {
     });
   }
 
-  getMaxId(users) {
+  getMaxId() {
     let maxId = 0;
 
-    // parcurge fiecare user si verifica daca id-ul lui e mai mare decat cel mai mare id de pana atunci
-    users.forEach(user => {
+    this.state.users.forEach(user => {
       if (user.id > maxId) {
         maxId = user.id;
       }
@@ -91,9 +90,7 @@ class App extends React.Component {
   render() {
     return(
       <div className="app" style={{background: this.state.background, color: this.state.color}}>
-        <UserAddForm updateUsersList={(user) => {
-          this.maxId = this.getMaxId(this.state.users) + 1
-          this.updateUsersList(user)}}/>
+        <UserAddForm updateUsersList={(user) => {this.updateUsersList(user)}} maxId = {this.getMaxId() + 1}/>
         {
           this.state.isPostsDisplayed === false
           ? <UserList users={this.state.users} />

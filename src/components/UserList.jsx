@@ -23,7 +23,7 @@ class UserList extends React.Component {
     render() {
         const { users } = this.props;
         // this.setState({users: this.props});
-        console.log('Delete user5', users);
+        console.log('Users:', users);
         return (
             <div>
                 <h1>Lista utilizatorilor:</h1>
