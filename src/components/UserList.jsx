@@ -12,7 +12,7 @@ class UserList extends React.Component {
     deleteFromUserList(user) {
 
         const { users } = this.props;
-        console.log('Delete user list', this.props);
+        console.log('Users:', users);
         console.log('Delete user', user);
         console.log('Delete user index', users.indexOf(user));
 
@@ -23,7 +23,6 @@ class UserList extends React.Component {
     render() {
         const { users } = this.props;
         // this.setState({users: this.props});
-        console.log('Users:', users);
         return (
             <div>
                 <h1>Lista utilizatorilor:</h1>

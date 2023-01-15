@@ -38,7 +38,6 @@ class UserAddForm extends React.Component {
   handleSubmit(event){
     event.preventDefault();
 
-    console.log("props: ",this.props);
     console.log("maxId: ",this.props.maxId);
 
     const newUser = {
@@ -49,9 +48,26 @@ class UserAddForm extends React.Component {
       imagine: this.state.imagine
     };
 
-    this.props.updateUsersList(newUser);
+    var isValidSubmit = true;
+    if(newUser.name.length === 0)
+      isValidSubmit = false;
+    if(newUser.email.length === 0 || !newUser.email.includes("@") || !newUser.email.includes("."))
+      isValidSubmit = false;
+    if(newUser.salariu.length === 0)
+      isValidSubmit = false;
+    if(newUser.imagine.length === 0)
+      isValidSubmit = false;
 
-    console.log("new user: ",newUser);
+    console.log("isValidSubmit: ",isValidSubmit);
+
+    if(isValidSubmit){
+      this.props.updateUsersList(newUser);
+      console.log("new user: ",newUser);
+    }
+    else{
+      console.log("Invalid form data");
+    }
+
   }
 
   render() {
