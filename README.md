@@ -1,6 +1,6 @@
 # ReactProject1
-
-**Preluare useri din API**
-**Listare useri existenți**
-**Adăugare user nou**
-**Schimbare culoare fundal**
+**Prezentare functionalitate:**
+#### 1. Preluare useri din API
+#### 2. Listare useri existenți
+#### 3. Adăugare user nou
+#### 4. Schimbare culoare fundal
